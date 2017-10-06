@@ -1,0 +1,38 @@
+<html>
+    <body>
+        <script>
+            function getResolvePromise(num) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(_ => resolve(num * 2), 2000) 
+                })
+            }
+
+            function getRejectPromise() {
+                return new Promise((resolve, reject) => {
+                    setTimeout(_ => resolve(`Rejected`), 2000)
+                })
+            }
+            
+            function getValue() {
+                return 10
+            }
+
+            function oldSchool() {
+                getResolvePromise(13).then(num => alert(num), e => alert(e))
+            }
+
+            async function asynchronous() {
+                try {
+                    const num1 = await getResolvePromise(13);
+                    const num2 = await getRejectPromise(2)
+                    alert(num1 + num2);
+                } catch(e) {
+                    alert(e)
+                }
+            }
+
+            asynchronous()
+            alert(1)
+        </script>
+    </body>
+</html>

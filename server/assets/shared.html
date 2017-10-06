@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <script>
+            let worker = new Worker("worker.js")
+            let buff = new SharedArrayBuffer(512)
+            let arr = new Uint32Array(buff)
+
+            Atomics.store(arr, 0, 10)
+
+            worker.postMessage(arr)
+
+            worker.onmessage = function(e) {
+                alert(Atomics.load(arr, 0))
+            }
+        </script>
+    </body>
+</html>

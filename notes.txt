@@ -1,0 +1,11 @@
+es7 - Array.prototype.includes, ** operator
+
+Object.values
+Object.entries
+"".padStart(number, string)
+function trailing comma
+getOwnPropertyDescriptors
+
+shared memory / atomics
+
+async functions
